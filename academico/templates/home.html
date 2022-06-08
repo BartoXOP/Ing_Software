@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!-- home.html -->
+{% block title %}Home Page{% endblock title %}
+
+{% block content %} 
+    <h2>Inicio</h2>
+    {% if user.is_authenticated %}
+        <p>Bienvenido a nuestra Pagina - {{user.username}}</p>
+        <p>Nuestar fundacion</p>
+        <!-- <p>Your name is - {{user.first_name}} {{user.last_name}}</p>
+        <p>Your email is - {{user.email}}</p> -->
+        <br><br>
+    {% endif %}
+    <h1>Coming Soon...</h1>
+    <footer style="background-color: #6C4675; color: white; text-align: center;">
+        Fundación de Apoyo &copy;2022
+    </footer>
+{% endblock content %}
+
+

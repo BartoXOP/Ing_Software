@@ -1,0 +1,16 @@
+{% extends 'Registro/base.html' %} 
+
+
+{% block titulo_principal %} CRUD: Insert {% endblock %}
+
+{% block content %}
+    <h1>Agregar Carrera</h1>
+    
+    <div class="content container">
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">GRABAR</button>
+    </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% block extrastatic %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@100;400&family=Anybody:wght@100;400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- <img src="{% static 'academico\static\img\fondo.jpg' %}" alt="fondo"> -->
+    <title>{% block title %}Document {% endblock %}</title>
+</head>
+
+<!-- <body style = "background-image: url('{%static 'img/fondo.jpg' %}');"> -->
+<body style="background-image: url('{%static 'img/hogar.jpg'%}'); background-repeat: no-repeat; background-position-x:center; background-position-y:center; background-size: 1920px 1080px;"">  
+    <div class="container">
+
+        {% block content %}
+        <h4> Bloque de contenido </h4>
+        {% endblock %}
+
+        {% block footer %}
+        <footer style="text-align: center; align-items: flex-end;">Fundación de Apoyo &copy;2022</footer>
+        {% endblock%}
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    {% block extrajs %}
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!-- base.html -->
+{% load static %}
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %}</title>
+        {% block css %} {% endblock css %}
+    </head>
+    <body>
+    {% block navbar %}
+    <!-- Cabezera -->
+    <style>
+        .nav-item a{
+            font-style: none;
+            text-decoration: none;
+            list-style: none;
+            color: white;
+        }
+        .nav-item{
+            font-style: none;
+            text-decoration: none;
+            list-style: none;
+            color: red;
+            
+        }
+        nav{
+            background-color: #6C4675;
+            height: 50px;
+        }
+        nav ul li{
+            display: inline-block;
+            
+        }
+        nav ul li a{
+            text-align: center;
+            justify-content: space-around;
+            margin: 10px;
+            text-decoration:none;
+        }
+        nav ul li a:hover{
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <nav id="navbar">
+        <!-- <div id="navbar-logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </div> -->
+
+        <div id="nav">
+            <ul>
+                
+                <li class="nav-item"><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="nav-item"><a href="#">Realizar Donacion</a></li>
+                <li class="nav-item"><a href="#">quiénes somos</a></li>
+                <li class="nav-item"><a href="#">contáctanos</a></li>
+
+                {% if not user.is_authenticated %}        
+                <li class="nav-item"><a href="{% url 'registrar' %}">registrarse</a></li>
+                <li class="nav-item"><a href="{% url 'login' %}">iniciar sesión</a></li>
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <li class="nav-item"><a style="color: red;" href="{% url 'Regitro:borrar_carrera' %}">Borrar carrera</a></li>
+                {% endif %}
+            
+                <li class="nav-item"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                <span class="ml-md-5" style="color: red;"><strong>Usuario: {{ user.get_username }}</strong></span>
+                {% endif %}                
+            </ul>
+        </div>                                 
+    </nav>
+    {% endblock %}
+        {% block content %} {% endblock content %}
+
+        {% block javascript %} {% endblock javascript %}
+    </body>
+</html>
