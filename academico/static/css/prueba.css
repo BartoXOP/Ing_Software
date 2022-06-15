@@ -1,0 +1,11 @@
+/* Css para Carrusel */
+.principal {
+    background-color: #6c4675;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    }

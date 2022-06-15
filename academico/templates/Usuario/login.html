@@ -1,0 +1,66 @@
+{% extends 'Usuario/base/base.html' %} 
+{% load static %}
+
+{% block title %}
+Inicio de Sesion
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/registro.css' %}" type="text/css">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<style>
+    *{
+        font-family: 'Oswald', sans-serif;
+    }
+    .container{
+        width: 400px;
+        background-size: auto;
+        align-items: center;
+    }
+    .form-group{
+        align-items: center;
+    }
+</style>
+<div id="registro" class="container">
+    <!-- <img src="{% static 'img/fondo.jpg' %}" alt="fondo"> -->
+    <h1 class="display" style="text-align: center;">Inicio de Sesión</h1><br>
+    <form method="POST" id="formulario" style="border: 1px solid black; background-color: #6C4675; color: white;">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="username">Nombre de Usuario</label><br>
+            <input name="username" class="form-control" type="text" placeholder="usuario" style="width: 80%;"/>
+            <div class="bg-danger mt-1">{{ form.errors.username }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input name="password" class="form-control" type="password" placeholder="contraseña" style="width: 80%; align-items: center;"/>
+            <div class="bg-danger mt-1">{{ form.errors.password }}</div>
+        </div>
+
+        {% if form.non_field_errors %}
+        <div class="form-group">
+            <div class="bg-danger mt-1 p-2">Login incorrecto!</div>
+        </div>  
+        {% endif %}
+        
+        {{form.non_field_errors}}
+
+        <div class="form-group">
+            <input class="btn" type="submit" value="Iniciar" style="background-color: green; color: white;"/>
+            <br>
+            <a href="{% url 'registrar'%}">¿No tienes cuenta? Registrate acá</a>
+
+            
+
+<!-- <input class="btn" type="submit" value="Registar"/> -->
+        </div>
+    </form>
+</div>
+{% endblock %}

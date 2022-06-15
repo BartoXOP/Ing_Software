@@ -1,0 +1,67 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Apoyo - Donaciones</title>
+    <link rel="stylesheet" href="../../static/css/donacion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+</head>
+{% if user.is_authenticated %}
+<body>
+<div class="container">
+    <label>Fecha</label>
+    <input type="date">
+    <p>Nombre: {{user.first_name}}</p>
+    <p>Apellido: {{user.last_name}}</p>
+    <div class="cant-donaciones">
+        <fieldset>
+        <div class="donacion-1k">
+            <input type="radio" name = "pago">
+            <label>$1.000 CLP</label>
+        </div>
+    </fieldset>
+
+
+    <fieldset>
+        <div class="donacion-5k">
+            <input type="radio" name = "pago">
+            <label>$5.000 CLP</label>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <div class="donacion-10k">
+            <input type="radio" name = "pago">
+            <label>$10.000 CLP</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="donacion-20k">
+            <input type="radio" name = "pago">
+            <label>$20.000 CLP</label>
+        </div>
+    </fieldset>
+
+
+    </div>
+    <div id="current_date"></p>
+        <script>
+        date = new Date();
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+        </script>
+</div>  
+    {% endif %}
+    {% if not user.is_authenticated %}  
+    <h2>Debes loguearte para accerder a las donaciones</h2>
+    <a href="{% url 'login' %}">Inicia sesión</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+.donacion-1k{
+    background-color: lightblue;
+}
+
+.donacion-5k{
+    background-color: lightcoral;
+}
+
+.donacion-10k{
+    background-color: lightgreen;
+}
+
+.donacion-20k{
+    background-color: lightyellow;
+}

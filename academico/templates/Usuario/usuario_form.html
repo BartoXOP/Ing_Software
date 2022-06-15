@@ -1,0 +1,55 @@
+{% extends 'Usuario/base/base.html' %} 
+
+{% block title %}
+Resgistro
+{% endblock %}
+
+{% block content %}
+    <style>
+        *{
+            font-family: 'Oswald', sans-serif;
+        }
+        .content container{
+            text-align: center;
+            border: 1px black solid;
+        }
+        .contenido-form{
+            background-color: #6c4675;
+            border: 1px solid black;
+        }
+
+        .helptext{
+            color: white;
+        }
+
+        li{
+            color: white;
+        }
+        .contenido-form label{
+            color: white;
+        }
+    </style>
+    <div class="image">
+        <!-- <img src="retrowave-lineas-montanas_3840x2160_xtrafondos.com.svg" alt="fondo"> -->
+    </div>
+    <h1 style="text-align: center;"> <em><strong>Registrate</strong></em></h1>
+    
+<div class="content container">
+    <form method="POST">
+        <div class="contenido-form">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Registar</button>
+    </div>
+    </form>
+    </div>>
+    
+    
+    
+            
+            
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+
+{% endblock %}

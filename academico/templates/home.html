@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+<!-- home.html -->
+{% block title %}Home Page{% endblock title %}
+
+{% block content %} 
+    <h2>Inicio</h2>
+    {% if user.is_authenticated %}
+        <p>Bienvenido a nuestra Pagina - {{user.username}}</p>
+        <p>Nuestar fundacion</p>
+        <!-- <p>Your name is - {{user.first_name}} {{user.last_name}}</p>
+        <p>Your email is - {{user.email}}</p> -->
+        <br><br>
+    {% endif %}
+
+    <!-- CARRUSEL -->
+    <section>
+        <div class="principal"> 
+            <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    
+                    <img src="../static/img/donacion.png" alt="donacion" class="center">
+                    
+                    <div class="container">
+                      <div class="carousel-caption text-start">
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src="../static/img/caridad.png" alt="caridad" class="center">
+                  
+                    <div class="container">
+                      <div class="carousel-caption">
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <img src="../static/img/donacion.png" alt="" class="center">
+                    
+                    <div class="container">
+                      <div class="carousel-caption text-end">
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+    </section>
+    <!-- FIN CARRUSEL -->
+    <!-- imagen -->
+    <!-- <div class="imagen-inicio">
+    <img src="../static/img/donacion.png" alt="imagen_inicio" class="imagen_inicio">
+    </div> -->
+    <div class="sec-donacion">
+        <div class="img-caridad">
+            <img src="../static/img/caridad.png" alt="caridad" class="img_caridad">
+        </div>
+        <div class="donaciones">
+            <!-- <fieldset> -->
+                <h3 class="h3-donacion">Aporta tu donación y se parte de nuestra fundación</h3>
+                <p>Hazte socio y envía tu donacíon</p>
+                <a href="{% url 'login' %}">Inicia sesión aquí</a>
+            <!-- </fieldset> -->
+        </div>
+    </div>
+    <footer style="background-color: #6C4675; color: white; text-align: center;">
+        Fundación de Apoyo &copy;2022
+    </footer>
+{% endblock content %}
+
+
